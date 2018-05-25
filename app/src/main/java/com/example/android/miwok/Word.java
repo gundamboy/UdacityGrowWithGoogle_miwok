@@ -1,42 +1,43 @@
-
 package com.example.android.miwok;
 
-/**
- * {@link Word} represents a vocabulary word that the user wants to learn.
- * It contains a default translation and a Miwok translation for that word.
- */
+
 public class Word {
-
-    /** Default translation for the word */
+    // member variables
     private String mDefaultTranslation;
-
-    /** Miwok translation for the word */
     private String mMiwokTranslation;
+    private int mImageResourceId = NO_IMAGE;
+    private static final int NO_IMAGE = -1;
 
-    /**
-     * Create a new Word object.
-     *
-     * @param defaultTranslation is the word in a language that the user is already familiar with
-     *                           (such as English)
-     * @param miwokTranslation is the word in the Miwok language
-     */
+    // Word constructor
     public Word(String defaultTranslation, String miwokTranslation) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
     }
 
-    /**
-     * Get the default translation of the word.
-     */
+    // Word constructor for words with an image
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImageResourceId = imageResourceId;
+    }
+
+    // Get the default translation
     public String getDefaultTranslation() {
         return mDefaultTranslation;
     }
 
-    /**
-     * Get the Miwok translation of the word.
-     */
+    // Get the Miwok translation
     public String getMiwokTranslation() {
         return mMiwokTranslation;
     }
 
+    // Get the image resource Id
+    public int getImageResourceId() {
+        return mImageResourceId;
+    }
+
+    // check if an image was provided
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE;
+    }
 }
